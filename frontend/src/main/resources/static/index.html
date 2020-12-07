@@ -8,6 +8,30 @@
 </head>
 <body>
     <h2>Hello guest!</h2>
-    <input id="sendButton" type="button" value="Send Rabbit Message"><input>
+    <div>
+        <input id="sendButton" type="button" value="Send Rabbit Message">
+        <label for="valueInput">Message</label>
+        <input id="valueInput" type="text" value="Message">
+        <label for="description">Description</label>
+        <input id="description" type="text" value="Description">
+    </div>
+    <div>
+        <input id="receiveButton" type="button" value="Receive Rabbit Message">
+        <h2>EVENTS:</h2>
+        <table id="events">
+            <thead>
+            <tr>
+                <td>id</td>
+                <td>message</td>
+                <td>description</td>
+            </tr>
+            </thead>
+            <tbody id="eventBody">
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
