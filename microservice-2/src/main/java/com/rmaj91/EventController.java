@@ -12,7 +12,7 @@ public class EventController {
 
     private final EventHandler eventHandler;
 
-    @GetMapping("/events")
+    @GetMapping("/receiver/events")
     public List<RabbitEvent> getEvents() {
         return eventHandler.getEvents();
     }

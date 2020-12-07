@@ -11,7 +11,7 @@ public class RabbitController {
 
     private final RabbitService rabbitService;
 
-    @PostMapping("/send")
+    @PostMapping("/sender/send")
     public void sendEvent(@RequestParam String message, @RequestParam String description) {
         rabbitService.sendEvent(message, description);
     }

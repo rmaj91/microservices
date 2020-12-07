@@ -2,14 +2,13 @@ package com.rmaj91;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-@EnableEurekaClient
+@EnableEurekaServer
 @SpringBootApplication
-public class Main {
+public class RegisterMain {
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(RegisterMain.class, args);
     }
-
 }

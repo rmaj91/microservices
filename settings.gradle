@@ -3,4 +3,5 @@ include 'microservice-1'
 include 'microservice-2'
 include 'frontend'
 include 'gateway'
+include 'register'
 
