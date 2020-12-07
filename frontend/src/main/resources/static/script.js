@@ -1,21 +1,24 @@
+const senderURL = 'http://localhost:8000/api/sender';
+const receiverURL = 'http://localhost:8000/api/receiver';
 sendMessage = () => {
-        $.ajax('http://localhost:8080/send?message=' + $('#valueInput').val() + '&description=' + $('#description').val(),
+        $.ajax(senderURL + '/send?message=' + $('#valueInput').val() + '&description=' + $('#description').val(),
             {
                 type: 'POST',
                 success: (data, status) => {
                     console.log('MESSAGE SEND!');
-                }
+                },
+                contentType: "application/json",
+                data: {}
             });
 }
 
 receiveMessage = (data, status) => {
-    $.ajax('http://localhost:8081/events',
+    $.ajax(receiverURL + '/events',
         {
             success: function (data, status) {
                 $('#eventBody').empty();
                 console.log(data)
                 for(row of data) {
-                console.log(row)
                     $('#eventBody').append(`<tr><td>${row.someId}</td><td>${row.additionalData}</td><td>${row.description}</td></tr>`);
                 }
             }
