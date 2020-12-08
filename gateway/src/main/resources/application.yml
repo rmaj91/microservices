@@ -16,6 +16,8 @@ zuul:
   endpoints:
     trace:
       sensitive: false
+    routes:
+      sensitive: false
 
 eureka:
   client:
