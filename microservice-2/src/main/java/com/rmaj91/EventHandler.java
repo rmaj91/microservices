@@ -1,17 +1,16 @@
 package com.rmaj91;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 @Service
+@RequiredArgsConstructor
 public class EventHandler {
 
-    private final List<RabbitEvent> events = new LinkedList<>();
+    private final RabbitEventRepository rabbitEventRepository;
+
 
     @RabbitListener(queues = "${test.queue}")
     public void sout(RabbitEvent rabbitEvent) {
@@ -20,14 +19,13 @@ public class EventHandler {
             if (rabbitEvent.getSomeId() == 999) {
                 throw new Exception();
             }
-            events.add(rabbitEvent);
+            RabbitEventEntity rabbitEventEntity = new RabbitEventEntity();
+            rabbitEventEntity.setDescription(rabbitEvent.getDescription());
+            rabbitEventEntity.setMessage(rabbitEvent.getAdditionalData());
+            rabbitEventRepository.save(rabbitEventEntity);
             System.out.println(rabbitEvent);
         } catch (Exception e) {
             throw new AmqpRejectAndDontRequeueException("");
         }
-    }
-
-    public List<RabbitEvent> getEvents() {
-        return events;
     }
 }

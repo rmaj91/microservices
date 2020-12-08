@@ -13,5 +13,5 @@ public class RabbitEvent implements Serializable {
 
     private final String description;
     private final String additionalData;
-    private final int someId;
+    private final long someId;
 }

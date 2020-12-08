@@ -8,13 +8,17 @@ import org.springframework.stereotype.Service;
 public class RabbitService {
 
     private final EventDispatcher eventDispatcher;
-    private int count;
+    private final RabbitEventRepository rabbitEventRepository;
 
     public void sendEvent(String message, String description) {
+        RabbitEventEntity rabbitEventEntity = new RabbitEventEntity();
+        rabbitEventEntity.setDescription(description);
+        rabbitEventEntity.setMessage(message);
+        rabbitEventRepository.save(rabbitEventEntity);
         RabbitEvent rabbitEvent = new RabbitEvent(
                 description,
                 message,
-                ++count);
+                rabbitEventEntity.getId());
         eventDispatcher.send(rabbitEvent);
     }
 }
