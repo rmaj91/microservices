@@ -5,33 +5,38 @@
     <title>Cool site</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 <body>
+<div id="container">
     <h2>Hello guest!</h2>
-    <div>
-        <input id="sendButton" type="button" value="Send Rabbit Message">
-        <label for="valueInput">Message</label>
-        <input id="valueInput" type="text" value="Message">
+    <div id="sending">
+        <div>
+            <input class="btn btn-dark" id="sendButton" type="button" value="Send Rabbit Message">
+        </div>
+        <label for="message">Message</label>
+        <input id="message" type="text" placeholder="Message">
         <label for="description">Description</label>
-        <input id="description" type="text" value="Description">
+        <input id="description" type="text" placeholder="Description">
     </div>
     <div>
-        <input id="receiveButton" type="button" value="Receive Rabbit Message">
+        <input class="btn btn-dark" id="receiveButton" type="button" value="Receive Rabbit Message">
         <h2>EVENTS:</h2>
-        <table id="events">
-            <thead>
-            <tr>
-                <td>id</td>
-                <td>message</td>
-                <td>description</td>
-            </tr>
+        <table class="table table-striped" id="events">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">message</th>
+                    <th scope="col">description</th>
+                    <th scope="col">created</th>
+                </tr>
             </thead>
-            <tbody id="eventBody">
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-            </tbody>
+            <tbody id="eventBody"></tbody>
         </table>
     </div>
+</div>
 </body>
 </html>

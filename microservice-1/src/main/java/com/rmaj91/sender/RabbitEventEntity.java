@@ -1,5 +1,6 @@
 package com.rmaj91.sender;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -22,5 +23,6 @@ public class RabbitEventEntity {
     private String description;
     private String message;
     @CreationTimestamp
+    @JsonIgnore
     private LocalDateTime created;
 }

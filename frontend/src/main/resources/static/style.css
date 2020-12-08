@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#sending {
+    margin-bottom: 20px;
+}
+
+input {
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;
+}
+
+#container {
+    background-color: #92a8d1;
+    padding: 30px ;
+    border-radius: 25px;
+}
+
+table {
+    background-color: white !important;
+}

@@ -13,16 +13,13 @@ public class EventHandler {
 
 
     @RabbitListener(queues = "${test.queue}")
-    public void sout(RabbitEvent rabbitEvent) {
+    public void sout(RabbitEventEntity rabbitEvent) {
         try {
             Thread.sleep(2000);
-            if (rabbitEvent.getSomeId() == 999) {
+            if (rabbitEvent.getId() == 999) {
                 throw new Exception();
             }
-            RabbitEventEntity rabbitEventEntity = new RabbitEventEntity();
-            rabbitEventEntity.setDescription(rabbitEvent.getDescription());
-            rabbitEventEntity.setMessage(rabbitEvent.getAdditionalData());
-            rabbitEventRepository.save(rabbitEventEntity);
+            rabbitEventRepository.save(rabbitEvent);
             System.out.println(rabbitEvent);
         } catch (Exception e) {
             throw new AmqpRejectAndDontRequeueException("");

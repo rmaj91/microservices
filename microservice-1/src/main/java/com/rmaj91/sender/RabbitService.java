@@ -15,10 +15,6 @@ public class RabbitService {
         rabbitEventEntity.setDescription(description);
         rabbitEventEntity.setMessage(message);
         rabbitEventRepository.save(rabbitEventEntity);
-        RabbitEvent rabbitEvent = new RabbitEvent(
-                description,
-                message,
-                rabbitEventEntity.getId());
-        eventDispatcher.send(rabbitEvent);
+        eventDispatcher.send(rabbitEventEntity);
     }
 }

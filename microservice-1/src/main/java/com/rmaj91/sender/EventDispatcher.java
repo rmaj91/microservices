@@ -16,7 +16,7 @@ public class EventDispatcher {
     @Value("${test.exchange.key}")
     private String multiplicationSolvedRoutingKey;
 
-    public void send(final RabbitEvent rabbitEvent) {
+    public void send(final RabbitEventEntity rabbitEvent) {
         rabbitTemplate.convertAndSend(
                 multiplicationExchange,
                 multiplicationSolvedRoutingKey,
